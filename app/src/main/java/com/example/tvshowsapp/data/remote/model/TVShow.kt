@@ -1,4 +1,4 @@
-package com.example.tvshowsapp.data.model
+package com.example.tvshowsapp.data.remote.model
 
 
 import com.squareup.moshi.Json

@@ -75,21 +75,19 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.45")
     kapt("com.google.dagger:hilt-compiler:2.45")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0-alpha01")
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
     implementation("io.coil-kt:coil-compose:2.4.0")
     implementation("com.squareup.moshi:moshi:1.13.0")
-    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 
     // This line is for Moshi code generation using kapt
     ksp("com.squareup.moshi:moshi-kotlin-codegen:1.13.0")
     implementation("androidx.navigation:navigation-compose:2.7.0")
     implementation("androidx.compose.compiler:compiler:1.5.1")
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0-alpha01")
     implementation ("androidx.compose.ui:ui:1.5.0")
     implementation ("androidx.compose.material:material:1.5.0") // Add this line
 
-
-
+    implementation("androidx.room:room-runtime:2.5.2")
+    ksp("androidx.room:room-compiler:2.5.2")
+    implementation("androidx.room:room-ktx:2.5.2")
 
 }

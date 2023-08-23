@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TVShowsApp</string>
+    <string name="favorites_title">Your Favorite TV Shows</string>
+    <string name="search_placeholder">Search for tv shows</string>
+    <string name="search_title">Find your favorites TV Shows</string>
+    <string name="search_button">Search Now</string>
+
+
+
 </resources>

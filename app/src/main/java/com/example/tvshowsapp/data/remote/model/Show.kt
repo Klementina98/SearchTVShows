@@ -1,4 +1,4 @@
-package com.example.tvshowsapp.data.model
+package com.example.tvshowsapp.data.remote.model
 
 
 import com.squareup.moshi.Json
@@ -14,7 +14,7 @@ data class Show(
     @Json(name = "id")
     val id: Int,
     @Json(name = "image")
-    val image: Image,
+    val image: Image?,
     @Json(name = "language")
     val language: String?,
     @Json(name = "name")
@@ -37,12 +37,14 @@ data class Show(
 
 fun Show.toDomainTVShow(): TVShow {
     return TVShow(
-        image = image,
+        id = id,
+        image = image?.let { com.example.tvshowsapp.presentation.model.Image(medium = it.medium, original = image.original) },
         language = language,
         name = name,
-        officialSite = officialSite,
         summary = summary,
         premiered = premiered,
         genres = genres,
+        runtime = runtime,
+        status = status,
     )
 }

@@ -1,3 +1,19 @@
 
 @
 build.gradle.kts,d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d
+f
+6app/src/main/java/com/example/tvshowsapp/TVShowsApp.kt,6/a/6a8b72965b22e24200a8edd8f7fdf3ec2c7ced38
+m
+=app/src/main/java/com/example/tvshowsapp/di/DatabaseModule.kt,5/9/5900aed5d1ac61ea62d8b87e95961cb32f1a5f60
+l
+<app/src/main/java/com/example/tvshowsapp/di/TVShowsModule.kt,6/e/6e4c059a7db46f7084a4a580ec7eaf07ae0c2b0e
+u
+Eapp/src/main/java/com/example/tvshowsapp/data/local/TVShowDatabase.kt,f/c/fc1591a9b25e40c3f601613f58eb0cc9bed03b51
+s
+Capp/src/main/java/com/example/tvshowsapp/data/remote/model/Image.kt,1/b/1b8a7dba893a3a8d8b31757f19ae6160963f7b34
+t
+Dapp/src/main/java/com/example/tvshowsapp/presentation/model/Image.kt,6/9/6907f566b5d45278a937c1275135de50c2bfbc09
+r
+Bapp/src/main/java/com/example/tvshowsapp/data/remote/TVShowsAPI.kt,5/9/592280fdaac6d57ec3ff804b307240bd98245740
+t
+Dapp/src/main/java/com/example/tvshowsapp/data/remote/model/TVShow.kt,3/8/38e1f40343b373922f3265eb1cc8e4ba0446ef41

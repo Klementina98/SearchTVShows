@@ -1,6 +1,7 @@
 package com.example.tvshowsapp.presentation.favorites
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,35 +17,55 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.tvshowsapp.R
 import com.example.tvshowsapp.presentation.model.TVShow
 
 @Composable
 fun FavoritesScreen(
     favoritesViewModel: FavoritesViewModel
 ) {
+
+    LaunchedEffect(favoritesViewModel) {
+        favoritesViewModel.readFavoritesTVShows()
+    }
+    
     val favoriteTVShows = favoritesViewModel.favoriteTVShows.collectAsState()
 
-    Text(text = "Favorites")
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
+    Column(
+        modifier = Modifier.padding(top = 16.dp, bottom = 46.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        items(favoriteTVShows.value) { tvShow ->
-            FavoriteTVShowCard(tvShow = tvShow)
+        Text(
+            text = stringResource(id = R.string.favorites_title),
+            style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.Gray),
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 16.dp)
+        ) {
+            items(favoriteTVShows.value) { tvShow ->
+                FavoriteTVShowCard(tvShow = tvShow)
+            }
         }
     }
+
 }
 
 @Composable
@@ -63,7 +84,7 @@ fun FavoriteTVShowCard(tvShow: TVShow) {
             // Left side: TV show image
 
             AsyncImage(
-                model = tvShow.image.medium,
+                model = tvShow.image?.medium ?: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png",
                 contentDescription = tvShow.name,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -84,10 +105,18 @@ fun FavoriteTVShowCard(tvShow: TVShow) {
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = tvShow.genres.joinToString(", "),
-                    fontSize = 14.sp,
-                    color = Color.Gray,
-                    maxLines = 1,
+                    text = tvShow.summary ?: "",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 16.sp,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = "Language: " +tvShow.language ?: "",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 16.sp,
+                    maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
                 Spacer(modifier = Modifier.height(4.dp))

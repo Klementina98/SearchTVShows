@@ -1,8 +1,8 @@
 package com.example.tvshowsapp.di
 
-import com.example.tvshowsapp.data.BASE_URL
-import com.example.tvshowsapp.data.TVShowsAPI
-import com.example.tvshowsapp.data.TVShowsRepositoryImpl
+import com.example.tvshowsapp.data.remote.BASE_URL
+import com.example.tvshowsapp.data.remote.TVShowsAPI
+import com.example.tvshowsapp.data.remote.TVShowsRepositoryImpl
 import com.example.tvshowsapp.domain.TVShowsRepository
 import dagger.Module
 import dagger.Provides

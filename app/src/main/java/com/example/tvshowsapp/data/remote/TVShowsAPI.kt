@@ -1,6 +1,6 @@
-package com.example.tvshowsapp.data
+package com.example.tvshowsapp.data.remote
 
-import com.example.tvshowsapp.data.model.TVShow
+import com.example.tvshowsapp.data.remote.model.TVShow
 import retrofit2.http.GET
 import retrofit2.http.Query
 

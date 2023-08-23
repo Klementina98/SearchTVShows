@@ -17,8 +17,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import android.graphics.Color.parseColor
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import com.example.tvshowsapp.R
 
 
 @Composable
@@ -27,11 +29,12 @@ fun SearchComponentWrapper(
     onQueryChange: (String) -> Unit,
     onSearchClick: () -> Unit
 ) {
-    val pearlColor = Color(parseColor("#F5F5F5")) // Replace with your HEX color code
+    val pearlColor = Color(parseColor("#F5F5F5"))
 
     Box(
         modifier = Modifier
-            .background(color = pearlColor) // Set the background color
+            .background(color = pearlColor)
+            .padding(horizontal = 16.dp)
             .border(width = 2.dp, color = Color.LightGray, shape = MaterialTheme.shapes.medium) // Add a border
     ) {
         SearchComponent(query, onQueryChange, onSearchClick)
@@ -53,7 +56,7 @@ fun SearchComponent(
     ) {
 
         Text(
-            text = "Find Your Favorite TV Shows",
+            text = stringResource(id = R.string.search_title),
             style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.Gray),
             modifier = Modifier.padding(bottom = 16.dp)
         )
@@ -66,7 +69,7 @@ fun SearchComponent(
             TextField(
                 value = query,
                 onValueChange = onQueryChange,
-                placeholder = { Text("Search for tv shows") },
+                placeholder = { Text(stringResource(id = R.string.search_placeholder)) },
                 textStyle = LocalTextStyle.current.copy(fontSize = 20.sp),
                 singleLine = true,
                 keyboardOptions = KeyboardOptions.Default.copy(
@@ -79,15 +82,8 @@ fun SearchComponent(
                     .weight(1f), // Take up available space in the row
                 shape = RoundedCornerShape(8.dp),
                 colors = TextFieldDefaults.textFieldColors(
-                    focusedIndicatorColor = Color.Transparent, // Hide the indicator
                     unfocusedIndicatorColor = Color.Transparent, // Hide the indicator
-                    cursorColor = Color.Black // Set cursor color
                 ),
-//                trailingIcon = {
-//                    IconButton(onClick = onSearchClick) {
-//                        Icon(imageVector = Icons.Default.Search, contentDescription = "Search")
-//                    }
-//                }
             )
         }
 
@@ -102,7 +98,7 @@ fun SearchComponent(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(imageVector = Icons.Default.Search, contentDescription = "Search", tint = Color.White)
                 Spacer(modifier = Modifier.width(4.dp))
-                Text(text = "Search Now")
+                Text(text = stringResource(id = R.string.search_button))
             }
         }
     }

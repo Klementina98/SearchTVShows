@@ -32,7 +32,7 @@ fun NavigationHost(
     Box {
         NavHost(navController = navController, startDestination = Screen.Search.route) {
             composable(route = Screen.Search.route) {
-                DisplayTVShows(searchViewModel = searchViewModel, favoritesViewModel = favoritesViewModel)
+                DisplayTVShows(searchViewModel = searchViewModel)
             }
             composable(route = Screen.Favorites.route) {
                 FavoritesScreen(favoritesViewModel = favoritesViewModel)

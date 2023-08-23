@@ -1,6 +1,6 @@
 package com.example.tvshowsapp.domain
 
-import com.example.tvshowsapp.data.model.TVShow
+import com.example.tvshowsapp.data.remote.model.TVShow
 
 interface TVShowsRepository {
 
