@@ -39,7 +39,7 @@ fun FavoritesScreen(
     favoritesViewModel: FavoritesViewModel
 ) {
 
-    LaunchedEffect(favoritesViewModel) {
+    LaunchedEffect(true) {
         favoritesViewModel.readFavoritesTVShows()
     }
     

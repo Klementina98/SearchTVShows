@@ -37,6 +37,10 @@ fun NavigationHost(
             composable(route = Screen.Favorites.route) {
                 FavoritesScreen(favoritesViewModel = favoritesViewModel)
             }
+//            composable(route = Screen.Details.route+"/{tvShowId}"){backStackEntry ->
+//                val characterId = backStackEntry.arguments?.getString("tvShowId")
+//                TVShowDetails(characterId)
+//            }
         }
 
         BottomNavigation(

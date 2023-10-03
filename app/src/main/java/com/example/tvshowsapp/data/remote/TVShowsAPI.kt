@@ -5,7 +5,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface TVShowsAPI {
-
     @GET("search/shows")
     suspend fun getTVShows(@Query("q") query: String): List<TVShow>
 }

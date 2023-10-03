@@ -89,6 +89,7 @@ fun DisplayTVShows(
                 ) {
                     items(successState.tvShows) { tvShow ->
 
+                        // value of isFavorite is preserved across recompositions of your composable function
                         var isFavorite by remember { mutableStateOf(tvShow.isFavorite) }
 
                         Surface(
@@ -101,6 +102,7 @@ fun DisplayTVShows(
                                 modifier = Modifier.fillMaxSize(),
                                 contentAlignment = Alignment.TopEnd
                             ) {
+                                //.clickable { navController.navigate("details/${tvShow.id}") },
                                 AsyncImage(
                                     model = tvShow.image?.medium
                                         ?: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png",

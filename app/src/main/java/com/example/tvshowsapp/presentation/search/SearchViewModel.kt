@@ -30,7 +30,6 @@ class SearchViewModel @Inject constructor(
     }
 
     private fun fetchTVShows(query: String) {
-        _tvShowsState.value = SearchResponseState.Loading
         viewModelScope.launch {
             try {
                 val tvShowsRemote = tvShowsRepository.getTVShows(query = query)
